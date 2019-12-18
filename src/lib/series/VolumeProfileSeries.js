@@ -138,7 +138,31 @@ function helper(props, moreProps, xAccessor, width) {
 		// console.log("values", values)
 
 		const volumeInBins = values
-			.map(arr => arr.map(d => absoluteChange(d) > 0 ? { direction: "up", volume: volume(d) } : { direction: "down", volume: volume(d) }))
+			.map(arr => {
+				let up = 0, down = 0, result = []
+				arr.forEach(d => {
+					if (d.hasOwnProperty('bull')) {
+						up += d.bull
+						down += d.bear
+						return
+					}
+					// Tranditional bull/bear
+					let vol = volume(d),
+						change = absoluteChange(d),
+						pull = change == 0 ? vol>>1 : vol>>2,
+						trend = vol - pull
+					if (change > 0) {
+						up += trend
+						down += pull
+					} else {
+						up += pull
+						down += trend
+					}
+				})
+				up > 0 && result.push({direction: "up", volume: up})
+				down > 0 && result.push({direction: "down", volume: down})
+				return result
+			})
 			.map(arr => rollup.entries(arr));
 
 		// console.log("volumeInBins", volumeInBins)
