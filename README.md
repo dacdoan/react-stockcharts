@@ -1,11 +1,6 @@
 ## React Stockcharts
 
-Note: steps to release:
-  * change version (and base version) in package.json, src/index.js and this file
-  * build `npm run release`
-  * publish `cd build && npm publish`
-
-This fork add some features
+This fork add some features, run `npm run prepare` to build it
 
 [![Join the chat at https://gitter.im/rrag/react-stockcharts](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/rrag/react-stockcharts?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![npm version](https://badge.fury.io/js/react-stockcharts.svg)](https://badge.fury.io/js/react-stockcharts)
