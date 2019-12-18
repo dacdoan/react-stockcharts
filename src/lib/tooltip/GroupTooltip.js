@@ -5,6 +5,7 @@ import displayValuesFor from "./displayValuesFor";
 import GenericChartComponent from "../GenericChartComponent";
 import ToolTipText from "./ToolTipText";
 import ToolTipTSpanLabel from "./ToolTipTSpanLabel";
+import { functor } from "../utils";
 
 const VALID_LAYOUTS = [
 	"horizontal",
@@ -207,7 +208,7 @@ class GroupTooltip extends Component {
 				fontFamily={fontFamily}
 				fontSize={fontSize}
 				labelFill={each.labelFill}
-				valueFill={each.valueFill}
+				valueFill={currentItem ? functor(each.valueFill)(currentItem) : 'grey'}
 				withShape={each.withShape}
 			/>;
 		} );
@@ -252,7 +253,7 @@ GroupTooltip.propTypes = {
 			PropTypes.func] ).isRequired,
 		yAccessor: PropTypes.func.isRequired,
 		labelFill: PropTypes.string,
-		valueFill: PropTypes.string,
+		valueFill: PropTypes.oneOfType( [PropTypes.string, PropTypes.func]),
 		withShape: PropTypes.bool, // "withShape" is ignored, if layout is "horizontalInline" or "vertical".
 	} ) ),
 };
