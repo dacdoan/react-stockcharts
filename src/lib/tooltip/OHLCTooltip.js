@@ -87,11 +87,11 @@ OHLCTooltip.propTypes = {
 
 const displayTextsDefault = {
 	t: "",
-	o: " O ",
-	h: " H ",
-	l: " L ",
-	c: " C ",
-	v: " Vol ",
+	o: " O",
+	h: " H",
+	l: " L",
+	c: " C",
+	v: " Vol",
 	na: "n/a"
 };
 
@@ -159,10 +159,14 @@ function defaultDisplay(props, itemsToDisplay) {
 				<ToolTipTSpanLabel fill={labelFill} key="label_L">{displayTexts.l}</ToolTipTSpanLabel>
 				<tspan key="value_L" fill={textFill}>{low}</tspan>
 				<ToolTipTSpanLabel fill={labelFill} key="label_C">{displayTexts.c}</ToolTipTSpanLabel>
-				<tspan key="value_C" fill={textFill}>{close} {absolute} ({percent})</tspan>
+				<tspan key="value_C" fill={textFill}>{close} {signFormat(absolute)} ({signFormat(percent)})</tspan>
 			</ToolTipText>
 		</g>
 	);
+}
+
+function signFormat(number) {
+	return number.indexOf('-') === -1 ? '＋' + number : number.replace('-', '－')
 }
 
 export default OHLCTooltip;
