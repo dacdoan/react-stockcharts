@@ -152,14 +152,14 @@ function defaultDisplay(props, itemsToDisplay) {
 				fontSize={fontSize}
 			>
 				<ToolTipTSpanLabel fill={tickerFill} key="label_T">[{displayTexts.t}]</ToolTipTSpanLabel>
-				<ToolTipTSpanLabel fill={labelFill} key="label_O">{displayTexts.o}</ToolTipTSpanLabel>
+				<ToolTipTSpanLabel fill={labelFill} key="label_O">&nbsp;{displayTexts.o}</ToolTipTSpanLabel>
 				<tspan key="value_O" fill={textFill}>{open}</tspan>
-				<ToolTipTSpanLabel fill={labelFill} key="label_H">{displayTexts.h}</ToolTipTSpanLabel>
+				<ToolTipTSpanLabel fill={labelFill} key="label_H">&nbsp;{displayTexts.h}</ToolTipTSpanLabel>
 				<tspan key="value_H" fill={textFill}>{high}</tspan>
-				<ToolTipTSpanLabel fill={labelFill} key="label_L">{displayTexts.l}</ToolTipTSpanLabel>
+				<ToolTipTSpanLabel fill={labelFill} key="label_L">&nbsp;{displayTexts.l}</ToolTipTSpanLabel>
 				<tspan key="value_L" fill={textFill}>{low}</tspan>
-				<ToolTipTSpanLabel fill={labelFill} key="label_C">{displayTexts.c}</ToolTipTSpanLabel>
-				<tspan key="value_C" fill={textFill}>{close} {signFormat(absolute)} ({signFormat(percent)})</tspan>
+				<ToolTipTSpanLabel fill={labelFill} key="label_C">&nbsp;{displayTexts.c}</ToolTipTSpanLabel>
+				<tspan key="value_C" fill={textFill}>{close}&nbsp; {signFormat(absolute)} ({signFormat(percent)})</tspan>
 			</ToolTipText>
 		</g>
 	);

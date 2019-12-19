@@ -37,7 +37,7 @@ class SingleTooltip extends Component {
 			<g transform={`translate(${origin[0]}, ${origin[1]})`} onClick={this.handleClick}>
 				{withShape ? <rect x="0" y="-6" width="6" height="6" fill={valueFill} /> : null}
 				<ToolTipText x={withShape ? 8 : 0} y={0} fontFamily={fontFamily} fontSize={fontSize}>
-					<ToolTipTSpanLabel fill={labelFill}>{yLabel}: </ToolTipTSpanLabel>
+					<ToolTipTSpanLabel fill={labelFill}>{yLabel}&nbsp;&nbsp;</ToolTipTSpanLabel>
 					<tspan fill={valueFill}>{yValue}</tspan>
 				</ToolTipText>
 			</g>
@@ -70,7 +70,7 @@ class SingleTooltip extends Component {
 
 		return (
 			<tspan onClick={this.handleClick} fontFamily={fontFamily} fontSize={fontSize}>
-				<ToolTipTSpanLabel fill={labelFill}>{yLabel}:&nbsp;</ToolTipTSpanLabel>
+				<ToolTipTSpanLabel fill={labelFill}>{yLabel}&nbsp;&nbsp;</ToolTipTSpanLabel>
 				<tspan fill={valueFill}>{yValue}&nbsp;&nbsp;</tspan>
 			</tspan>
 		);
